@@ -10,12 +10,13 @@ public class TriggerSceneChange : MonoBehaviour
 
     public string nextSpawnName;
 
-    public LevelManager levelManager;
+    private LevelManager levelManager;
 
 
     private void Start()
     {
-        //levelManager = FindObjectOfType<LevelManager>();
+        //Need this to get my level manager, so I can use it
+        levelManager = FindObjectOfType<LevelManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -23,7 +24,7 @@ public class TriggerSceneChange : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             levelManager.LoadSceneWithSpawnPoint(nextSceneName, nextSpawnName);
-            Debug.Log($" scene {nextSceneName} spawn {nextSpawnName}");
+            //Debug.Log($" scene {nextSceneName} spawn {nextSpawnName}");
             
             
         }
@@ -50,9 +51,5 @@ public class TriggerSceneChange : MonoBehaviour
         {
             Debug.LogWarning("BoxCollider2D component not found on the GameObject.");
         }
-        // Draw a sphere at the spawn point
-        Gizmos.color = Color.cyan;   // You can change the color here
-        Gizmos.DrawWireSphere(transform.position, 0.25f); // Draw a sphere at the spawn point location with radius 0.5
-
     }
 }
