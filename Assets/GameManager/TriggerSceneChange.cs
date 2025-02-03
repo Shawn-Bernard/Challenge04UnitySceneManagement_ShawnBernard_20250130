@@ -6,11 +6,12 @@ using UnityEngine;
 
 public class TriggerSceneChange : MonoBehaviour
 {
-    public string nextSceneName;
+    // Serialize Field will show the "data" even when private
+    [SerializeField] private string nextSceneName;
 
-    public string nextSpawnName;
+    [SerializeField] private string nextSpawnName;
 
-    private LevelManager levelManager;
+    [SerializeField] private LevelManager levelManager;
 
 
     private void Start()
